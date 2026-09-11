@@ -1,0 +1,177 @@
+/* ==========================================================================
+   1. Reset & Global Box-Sizing (Task 2)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   2. Design Tokens / Custom Properties (Task 2)
+   ========================================================================== */
+:root {
+  --color-primary: #2457d6;
+  --color-primary-dark: #193ca0;
+  --color-bg: #f8fafc;
+  --color-card-bg: #ffffff;
+  --color-text: #172033;
+  --color-border: #dbe2ea;
+  --spacing-base: 1rem;
+  --radius-card: 12px;
+}
+
+/* ==========================================================================
+   3. Container Class (Task 2)
+   ========================================================================== */
+.container {
+  width: min(100% - 2rem, 1120px);
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   4. Header & Navigation Components (Task 2)
+   ========================================================================== */
+.site-header {
+  background-color: var(--color-card-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--spacing-base);
+  margin-bottom: calc(var(--spacing-base) * 2);
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-base);
+}
+
+.site-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link:focus-visible {
+  outline: 3px solid #f4b000;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   5. Card & Media Components (Task 2)
+   ========================================================================== */
+.card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: calc(var(--spacing-base) * 1.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+
+.profile-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: var(--spacing-base);
+}
+
+.skills-list {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.skills-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Button Component */
+.button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button:focus-visible {
+  outline: 3px solid #f4b000;
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   6. Responsive Layout - Flexbox Mobile First (Task 3)
+   ========================================================================== */
+/* Tampilan Ponsel (Default: Mobile-First) */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.card-list > .card {
+  flex: 1 1 16rem; /* Grow, shrink, flex-basis */
+}
+
+/* Tampilan Tablet/Desktop (Breakpoint 768px) */
+@media (min-width: 768px) {
+  .card-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+}
+
+/* ==========================================================================
+   7. Footer Component
+   ========================================================================== */
+.site-footer {
+  margin-top: calc(var(--spacing-base) * 3);
+  padding-block: var(--spacing-base);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  color: #64748b;
+  font-size: 0.875rem;
+}

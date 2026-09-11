@@ -1,0 +1,19 @@
+Alasan Pemilihan Elemen Semantik
+
+1. Elemen <article>
+
+Kemandirian Konten: Seluruh laporan kegiatan ini bersifat self-contained (mandiri). Informasi di dalamnya memiliki makna yang utuh dan tetap masuk akal meskipun dipisahkan dari tata letak web utama atau dibagikan ke platform lain.
+
+Fokus Konten Utama: Membantu search engine dan screen reader mengidentifikasi blok artikel ini sebagai unit informasi paling penting pada halaman.
+
+2. Elemen <section>
+
+Pengelompokan Tematik: Digunakan untuk memecah isi artikel menjadi bagian-bagian pembahasan yang logis, yaitu sub-topik "Latar Belakang" dan "Rangkaian Kegiatan".
+
+Hierarki Judul: Masing-masing <section> dipasangkan dengan sub-judul (<h2>), menciptakan struktur dokumen yang rapi dan mempermudah pemindaian informasi (skimming).
+
+3. Elemen <time>
+
+Standar Mesin (Machine-Readable): Menyimpan data waktu publikasi dalam format standar komputer via atribut datetime="2026-09-12T09:00".
+
+Akurasi Informasi: Memastikan browser, mesin pencari, dan screen reader dapat membaca tanggal dan jam publikasi secara tepat tanpa terjadi salah tafsir format teks atau zona waktu.

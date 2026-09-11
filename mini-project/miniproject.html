@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevKampus — Komunitas Belajar Web Development D3TI</title>
+  <link rel="stylesheet" href="css/miniproject.css">
+</head>
+<body>
+
+  <!-- Header & Navigasi Utama -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo">DevKampus<span>D3TI</span></a>
+      <nav class="main-nav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li><a href="#fitur" class="nav-link">Fitur</a></li>
+          <li><a href="#program" class="nav-link">Program</a></li>
+          <li><a href="#daftar" class="nav-link">Daftar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <h1>Kuasai Fondasi Web Development Tanpa Framework</h1>
+          <p class="hero-subtitle">
+            Belajar HTML5 semantik, CSS3 modern, dan aksesibilitas web melalui proyek nyata dan mentoring sejawat khusus mahasiswa D3 Teknik Informatika.
+          </p>
+          <a href="#daftar" class="button button-primary">Gabung Komunitas Sekarang</a>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="assets/foto.jpeg" alt="Ilustrasi mahasiswa sedang berdiskusi dan menulis kode HTML CSS di laptop" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Fitur / Keunggulan -->
+    <section id="fitur" class="features-section">
+      <div class="container">
+        <h2 class="section-title">Mengapa Memilih DevKampus?</h2>
+        <p class="section-subtitle">Tiga pilar utama dalam membangun kebiasaan coding yang standar dan profesional.</p>
+        
+        <div class="features-grid">
+          <article class="card feature-card">
+            <div class="card-icon">🏷️</div>
+            <h3>HTML5 Semantik</h3>
+            <p>Pahami struktur dokumen web secara mendalam agar ramah mesin pencari (SEO) dan dapat diakses oleh semua pengguna.</p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon">📐</div>
+            <h3>Flexbox Mastery</h3>
+            <p>Kuasai teknik penyusunan tata letak responsif berbasis Flexbox tanpa bergantung pada library atau framework CSS.</p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Code Defense Ready</h3>
+            <p>Latihan menjelaskan keputusan teknis dan struktur kode dengan percaya diri saat sesi responsi praktikum.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Program Mentoring -->
+    <section id="program" class="program-section">
+      <div class="container">
+        <div class="card program-card">
+          <h2>Program Mentoring Sejawat</h2>
+          <p>
+            Di DevKampus, Anda tidak belajar sendirian. Kami menyediakan sesi *code review* mingguan, latihan studi kasus, dan simulasi *code defense* bersama kakak tingkat dan teman seangkatan.
+          </p>
+          <ul class="program-list">
+            <li><strong>Workshop Mingguan:</strong> Bedah modul dan praktikum HTML/CSS.</li>
+            <li><strong>Peer Code Review:</strong> Dapatkan masukan langsung terkait kebersihan kodenya.</li>
+            <li><strong>Aksesibilitas & Standards:</strong> Penerapan standar WCAG sejak baris kode pertama.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Call to Action / Form Pendaftaran -->
+    <section id="daftar" class="cta-section">
+      <div class="container">
+        <div class="card cta-card">
+          <h2>Daftar Mentoring Sekarang</h2>
+          <p>Isi formulir singkat di bawah ini untuk mendapatkan undangan grup diskusi dan jadwal kegiatan.</p>
+          
+          <form class="signup-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Contoh: Danish Arva" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Student / Pribadi</label>
+              <input type="email" id="email" name="email" placeholder="nama@mahasiswa.polban.ac.id" required>
+            </div>
+
+            <button type="submit" class="button button-primary button-full">Kirim Pendaftaran</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 DevKampus D3TI. Dibuat oleh <strong>Danish Arva Linardhi (251511007)</strong>.</p>
+      <a href="#hero" class="back-to-top">Kembali ke Atas ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

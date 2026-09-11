@@ -1,0 +1,329 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & RESET
+   ========================================================================== */
+:root {
+  --color-primary: #2457d6;
+  --color-primary-dark: #193ca0;
+  --color-accent: #f4b000;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #172033;
+  --color-text-muted: #64748b;
+  --color-border: #dbe2ea;
+  
+  --font-main: Arial, Helvetica, sans-serif;
+  --radius-card: 12px;
+  --radius-btn: 6px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   2. REUSABLE COMPONENTS & UTILITIES
+   ========================================================================== */
+.container {
+  width: min(100% - 2rem, 1120px);
+  margin-inline: auto;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button-full {
+  width: 100%;
+}
+
+/* State Aksesibilitas (Keyboard Focus) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   3. HEADER & NAVIGATION
+   ========================================================================== */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-block: 1rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero-section {
+  padding-block: 3rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.hero-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.hero-image-wrapper {
+  width: 100%;
+}
+
+/* ==========================================================================
+   5. FEATURES SECTION (FLEXBOX CARDS)
+   ========================================================================== */
+.features-section {
+  padding-block: 3rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+/* Mobile-First Layout: Stack 1 Kolom Vertikal */
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.feature-card h3 {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   6. PROGRAM & CTA SECTION
+   ========================================================================== */
+.program-section,
+.cta-section {
+  padding-block: 2rem 3rem;
+}
+
+.program-card h2,
+.cta-card h2 {
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.program-list {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+
+.program-list li {
+  margin-bottom: 0.5rem;
+}
+
+.cta-card {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-block: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.back-to-top {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINT (TABLET / DESKTOP >= 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-text,
+  .hero-image-wrapper {
+    flex: 1;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Flexbox Feature Cards menjadi 3 kolom bersisian */
+  .features-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .feature-card {
+    flex: 1 1 16rem; /* Fleksibel dan bersisian seimbang */
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
