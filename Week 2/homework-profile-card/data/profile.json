@@ -1,0 +1,9 @@
+{
+  "nama": "Danish Arva Linardhi",
+  "deskripsi": "Seorang mahasiswa D3 Teknik Informatika yang antusias belajar pengembangan antarmuka web interaktif menggunakan Vanilla JavaScript.",
+  "keterampilan": [
+    { "id": 1, "nama": "HTML Semantik" },
+    { "id": 2, "nama": "CSS Flexbox & Grid" },
+    { "id": 3, "nama": "Vanilla JavaScript" }
+  ]
+}

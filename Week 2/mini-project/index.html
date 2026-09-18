@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevKampus - Komunitas Belajar Web Development D3TI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- JavaScript dimuat dengan atribut defer -->
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigasi Utama -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo">DevKampus<span>D3TI</span></a>
+      
+      <div class="header-actions">
+        <!-- Tombol Switch Tema (Dark/Light Mode) -->
+        <button id="theme-toggle" class="button button-outline" type="button" aria-label="Ganti Tema">
+          🌙 Tema Gelap
+        </button>
+
+        <!-- Tombol Hamburger Navigasi Mobile -->
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka Menu Navigasi">
+          ☰
+        </button>
+      </div>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li><a href="#fitur" class="nav-link">Fitur</a></li>
+          <li><a href="#program" class="nav-link">Program</a></li>
+          <li><a href="#kegiatan" class="nav-link">Jadwal Workshop</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#daftar" class="nav-link">Daftar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <h1>Kuasai Fondasi Web Development Tanpa Framework</h1>
+          <p class="hero-subtitle">
+            Belajar HTML5 semantik, CSS3 modern, dan aksesibilitas web melalui proyek nyata dan mentoring sejawat khusus mahasiswa D3 Teknik Informatika.
+          </p>
+          <a href="#daftar" class="button button-primary">Gabung Komunitas Sekarang</a>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="assets/foto.jpeg" alt="Ilustrasi mahasiswa sedang berdiskusi dan menulis kode HTML CSS di laptop" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Fitur / Keunggulan -->
+    <section id="fitur" class="features-section">
+      <div class="container">
+        <h2 class="section-title">Mengapa Memilih DevKampus?</h2>
+        <p class="section-subtitle">Tiga pilar utama dalam membangun kebiasaan coding yang standar dan profesional.</p>
+        
+        <div class="features-grid">
+          <article class="card feature-card">
+            <div class="card-icon">🏷️</div>
+            <h3>HTML5 Semantik</h3>
+            <p>Pahami struktur dokumen web secara mendalam agar ramah mesin pencari (SEO) dan dapat diakses oleh semua pengguna.</p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon">📐</div>
+            <h3>Flexbox Mastery</h3>
+            <p>Kuasai teknik penyusunan tata letak responsif berbasis Flexbox tanpa bergantung pada library atau framework CSS.</p>
+          </article>
+
+          <article class="card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Code Defense Ready</h3>
+            <p>Latihan menjelaskan keputusan teknis dan struktur kode dengan percaya diri saat sesi responsi praktikum.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Program Mentoring -->
+    <section id="program" class="program-section">
+      <div class="container">
+        <div class="card program-card">
+          <h2>Program Mentoring Sejawat</h2>
+          <p>
+            Di DevKampus, Anda tidak belajar sendirian. Kami menyediakan sesi <em>code review</em> mingguan, latihan studi kasus, dan simulasi <em>code defense</em> bersama kakak tingkat dan teman seangkatan.
+          </p>
+          <ul class="program-list">
+            <li><strong>Workshop Mingguan:</strong> Bedah modul dan praktikum HTML/CSS.</li>
+            <li><strong>Peer Code Review:</strong> Dapatkan masukan langsung terkait kebersihan kodenya.</li>
+            <li><strong>Aksesibilitas & Standards:</strong> Penerapan standar WCAG sejak baris kode pertama.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Dinamis: Jadwal & Modul Workshop (Array + Filter) -->
+    <section id="kegiatan" class="kegiatan-section">
+      <div class="container">
+        <h2 class="section-title">Jadwal & Agenda Sesi</h2>
+        <p class="section-subtitle">Pilih kategori modul untuk menyaring agenda kegiatan yang tersedia.</p>
+        
+        <!-- Filter Control -->
+        <div class="filter-wrapper">
+          <label for="filter-kategori" class="filter-label">Kategori:</label>
+          <select id="filter-kategori" class="filter-select">
+            <option value="semua">Semua Kategori</option>
+            <option value="html-css">HTML & CSS</option>
+            <option value="javascript">JavaScript Basic</option>
+            <option value="accessibility">Aksesibilitas & Standards</option>
+          </select>
+        </div>
+
+        <p id="status-kegiatan" class="sr-only" role="status" aria-live="polite"></p>
+        
+        <!-- Container untuk render dinamis dari Array Object via JS -->
+        <div id="daftar-kegiatan" class="features-grid"></div>
+      </div>
+    </section>
+
+    <!-- Section FAQ (Accordion) -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+        <p class="section-subtitle">Informasi seputar pendaftaran dan pelaksanaan mentoring.</p>
+
+        <div class="accordion">
+          <div class="faq-item card">
+            <button class="faq-btn" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+              <span>Apakah kegiatan ini dipungut biaya?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-ans-1" class="faq-content" role="region" aria-labelledby="faq-btn-1">
+              <p>Tidak ada biaya sama sekali (100% Gratis). DevKampus dibentuk sebagai wadah kolaborasi antar mahasiswa D3TI.</p>
+            </div>
+          </div>
+
+          <div class="faq-item card">
+            <button class="faq-btn" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+              <span>Apakah pemula yang belum pernah coding boleh bergabung?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-ans-2" class="faq-content" role="region" aria-labelledby="faq-btn-2">
+              <p>Sangat boleh! Materi dirancang secara bertahap mulai dari fondasi paling dasar tanpa langsung melompat ke framework rumit.</p>
+            </div>
+          </div>
+
+          <div class="faq-item card">
+            <button class="faq-btn" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+              <span>Kapan dan di mana kegiatan mentoring dilaksanakan?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div id="faq-ans-3" class="faq-content" role="region" aria-labelledby="faq-btn-3">
+              <p>Mentoring diadakan secara hibrid (online via Google Meet dan luring di laboratorium kampus D3TI sesuai kesepakatan kelompok).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Call to Action / Form Pendaftaran -->
+    <section id="daftar" class="cta-section">
+      <div class="container">
+        <div class="card cta-card">
+          <h2>Daftar Mentoring Sekarang</h2>
+          <p>Isi formulir singkat di bawah ini untuk mendapatkan undangan grup diskusi dan jadwal kegiatan.</p>
+          
+          <form id="signup-form" class="signup-form" action="#" method="POST" novalidate>
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Contoh: Danish Arva" required aria-describedby="error-nama">
+              <small id="error-nama" class="error-msg" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Student / Pribadi</label>
+              <input type="email" id="email" name="email" placeholder="nama@mahasiswa.polban.ac.id" required aria-describedby="error-email">
+              <small id="error-email" class="error-msg" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="peminatan">Minat Program Utama</label>
+              <select id="peminatan" name="peminatan" required aria-describedby="error-peminatan">
+                <option value="">-- Pilih Minat Mentoring --</option>
+                <option value="html-css">HTML & CSS Fundamentals</option>
+                <option value="javascript">DOM & JavaScript Interactive</option>
+                <option value="code-defense">Persiapan Responsi & Code Defense</option>
+              </select>
+              <small id="error-peminatan" class="error-msg" aria-live="polite"></small>
+            </div>
+
+            <button type="submit" class="button button-primary button-full">Kirim Pendaftaran</button>
+          </form>
+
+          <!-- Pesan Status Form -->
+          <div id="status-form" class="status-msg" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 DevKampus D3TI. Dibuat oleh <strong>Danish Arva Linardhi (251511007)</strong>.</p>
+      <a href="#hero" id="back-to-top" class="back-to-top" hidden aria-label="Kembali ke atas halaman">Kembali ke Atas ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

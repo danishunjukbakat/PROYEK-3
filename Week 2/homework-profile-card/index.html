@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Profile Card</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="header-actions">
+      <button id="toggle-tema" type="button">Ganti Tema</button>
+    </div>
+
+    <section class="profile-card" aria-labelledby="nama-profil">
+      <!-- Status UI (Loading, Error, Empty) -->
+      <p id="status" role="status" aria-live="polite">Menyiapkan profil...</p>
+      <button id="coba-lagi" type="button" hidden>Coba Lagi</button>
+
+      <!-- Konten Profil -->
+      <div id="konten-profil" hidden>
+        <h1 id="nama-profil"></h1>
+        
+        <button id="toggle-detail" type="button" aria-expanded="false">Tampilkan Detail</button>
+        <div id="detail-profil" class="tersembunyi">
+          <p id="deskripsi-profil"></p>
+        </div>
+
+        <h2>Keterampilan</h2>
+        <ul id="daftar-keterampilan" aria-label="Daftar Keterampilan"></ul>
+
+        <form id="form-keterampilan" novalidate>
+          <label for="input-keterampilan">Tambah Keterampilan</label>
+          <input id="input-keterampilan" type="text" name="keterampilan" placeholder="Masukkan keahlian baru..." required>
+          <small id="error-keterampilan" class="error"></small>
+          <button id="btn-tambah" type="submit">Tambah Keterampilan</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
