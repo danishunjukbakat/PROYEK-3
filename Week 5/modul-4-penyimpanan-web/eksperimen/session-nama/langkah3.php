@@ -1,0 +1,2 @@
+<?php session_name('modul4_nama');session_start(); ?>
+<!doctype html><html lang="id"><meta charset="utf-8"><title>Session nama</title><link rel="stylesheet" href="../style.css"><main><h1>Nama dipertahankan oleh session</h1><p>Nama: <?= htmlspecialchars($_SESSION['nama']??'(belum disimpan)',ENT_QUOTES,'UTF-8') ?></p><p>Refresh halaman ini: nama tetap terbaca dari server selama session valid.</p><a href="langkah1.php">Kembali</a></main></html>

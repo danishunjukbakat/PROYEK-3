@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','Riwayat pesanan')
+@section('content')<h1>Riwayat pesanan</h1><p class="muted">Pesanan milik {{ auth()->user()->nama_lengkap }}.</p><div class="panel">@if($orders->isEmpty())<p>Belum ada pesanan.</p>@else<div class="table-wrap"><table><thead><tr><th>Nomor pesanan</th><th>Tanggal</th><th>Total</th><th>Detail</th></tr></thead><tbody>@foreach($orders as $o)<tr><td>{{ $o->id_order }}</td><td>{{ $o->tanggal_order->format('d-m-Y H:i') }}</td><td>{{ \App\Support\Money::rupiah(\App\Support\Money::cents($o->total_harga)) }}</td><td><a href="{{ route('pesanan.show',$o->id_order) }}">Lihat detail</a></td></tr>@endforeach</tbody></table></div>@endif</div>@endsection

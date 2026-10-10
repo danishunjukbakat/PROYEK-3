@@ -1,0 +1,14 @@
+<!doctype html><html lang="id"><meta charset="utf-8"><title>Keranjang Local Storage</title><link rel="stylesheet" href="../style.css"><main><h1>Keranjang Local Storage</h1><p class="note">Contoh laboratorium: data client dapat diubah. Batas stok sengaja tidak diterapkan agar dampak manipulasi terlihat.</p><div id="produk"></div><table><thead><tr><th>Barang</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr></thead><tbody id="items"></tbody></table><p id="total"></p><button id="clear">Kosongkan</button><p id="status" aria-live="polite"></p><pre>localStorage.setItem('modul4_cart', JSON.stringify({1:999,2:1}));
+location.reload();</pre><p>Data tidak otomatis dikirim bersama request HTTP. Jangan simpan password atau token autentikasi pada contoh ini.</p></main><script>
+const products={1:{name:'Buku Tulis',price:5000},2:{name:'Pulpen',price:3000},3:{name:'Penggaris',price:4000}};
+const key='modul4_cart',status=document.querySelector('#status');let cart={};
+try{const v=JSON.parse(localStorage.getItem(key)??'{}');cart=v&&typeof v==='object'&&!Array.isArray(v)?v:{}}catch(e){status.textContent='Data tidak valid; mulai dari keranjang kosong.'}
+const rupiah=n=>'Rp '+n.toLocaleString('id-ID');
+function save(){try{localStorage.setItem(key,JSON.stringify(cart));render()}catch(e){status.textContent='Gagal menyimpan: '+e.message}}
+function btn(label,fn){const b=document.createElement('button');b.textContent=label;b.onclick=fn;return b}
+for(const [id,p] of Object.entries(products))document.querySelector('#produk').append(btn('Tambah '+p.name+' — '+rupiah(p.price),()=>{cart[id]=(Number(cart[id])||0)+1;save()}));
+function render(){const body=document.querySelector('#items');body.replaceChildren();let total=0;
+for(const [id,raw] of Object.entries(cart)){const p=products[id],qty=Number(raw);if(!p||!Number.isFinite(qty))continue;const tr=document.createElement('tr');for(const value of [p.name,qty,rupiah(qty*p.price)]){const td=document.createElement('td');td.textContent=value;tr.append(td)}const action=document.createElement('td');action.append(btn('−',()=>{cart[id]=qty-1;if(cart[id]<=0)delete cart[id];save()}),btn('+',()=>{cart[id]=qty+1;save()}),btn('Hapus',()=>{delete cart[id];save()}));tr.append(action);body.append(tr);total+=qty*p.price;}
+document.querySelector('#total').textContent='Total: '+rupiah(total);}
+document.querySelector('#clear').onclick=()=>{cart={};save()};window.addEventListener('storage',e=>{if(e.key===key)location.reload()});render();
+</script></html>
